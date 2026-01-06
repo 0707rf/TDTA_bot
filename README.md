@@ -1,8 +1,10 @@
 [![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python)](https://www.python.org/downloads/)
 ![Selenium](https://img.shields.io/badge/Library-Selenium-green?logo=selenium)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+![Discord](https://img.shields.io/badge/Discord-0707rf-5865F2?style=flat-square&logo=discord&logoColor=white)
 
-# TDTA (Taiwan Driving Test Assistant) 
+# TDTA (Taiwan Driving Test Assistant) `v0.9.0`
+
 **台灣監理站路考預約助手**
 
 ---
@@ -30,3 +32,24 @@
 3. **使用方法**：您可以透過直接安裝 `0.9.0.exe` 直接開啟使用，或是開啟 `0.9.0.py` 透過 **CMD** 啟用
 
 
+## 💬 關於我 (Contact)
+如果有任何問題，歡迎透過 Discord 聯繫我：
+* **Discord ID**: `0707rf`
+[點我聯絡 Discord](https://discordapp.com/users/0707rf)
+
+
+我也是一個小白還有許多東西還不會，歡迎大師指點。
+
+
+---
+
+## ⚖️ 免責聲明 (Disclaimer)
+
+使用本專案（以下簡稱「本程式」）即表示您同意以下條款：
+
+1. **僅供技術交流**：本程式僅供程式設計愛好者作為技術研究與學術交流之用，請勿將其用於任何違反中華民國法律之行為。
+2. **遵守服務條款**：使用者在執行本程式前，應自行閱讀並遵守「監理服務網」之服務條款。任何因過度頻繁請求導致之 IP 封鎖或帳號停權，作者概不負責。
+3. **無擔保責任**：本程式依「現狀」提供，作者不保證程式之穩定性、完整性或預約成功之結果。使用本程式所產生之任何直接、間接損害（包括但不限於預約失敗、電腦故障等），作者不負任何賠償責任。
+4. **禁止商用**：本程式旨在維護預約公平性，嚴禁任何個人或團體利用本程式進行代搶收費、牟利等行為。
+
+**如果您不同意上述條款，請立即停止使用並刪除本程式碼。**
