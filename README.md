@@ -29,7 +29,7 @@
 2. **安裝依賴**：
    ```bash
    pip install selenium webdriver-manager
-3. **使用方法**：您可以透過直接安裝 `0.9.0.exe` 直接開啟使用，或是開啟 `0.9.0.py` 透過 **CMD** 啟用
+3. **使用方法**：您可以透過直接安裝 `TADA_bot.exe` 直接開啟使用，或是開啟 `TADA_bot.py` 透過 **CMD** 啟用
 
 
 ## 💬 關於我 (Contact)
