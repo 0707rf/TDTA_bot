@@ -34,7 +34,7 @@
    ```bash
    pip install selenium webdriver-manager
 3. **安裝 Google Chrome**: [點我安裝 Google Chrome](https://support.google.com/chrome/answer/95346?hl=zh-Hant&co=GENIE.Platform%3DDesktop#zippy=)
-4. **使用方法**：您可以透過直接安裝 `TADA_bot.exe` 直接開啟使用，或是開啟 `main.py` 透過 **CMD** 啟用
+4. **使用方法**：您可以透過直接安裝 `TADA_bot-win.exe` 直接開啟使用，或是開啟 `main.py` 透過 **CMD** 啟用
 
 
 ## ⚠️ 啟動時間設定須知
@@ -87,7 +87,25 @@
 
 之後確認後，就填寫啟動時間，至於怎麼怎麼設定 **正確啟動時間** [查看上方啟動時間設定須知](#%EF%B8%8F-啟動時間設定須知) (請記得必須按照格式輸入 `00:00:00` 否則會失效)
 
+------
 
+## ⚠️關於防毒軟體誤報
+
+本專案的執行檔(.exe) 是使用 **Pyinstaller** 將Python程式碼打包而成，這類打包方式經常會被Windows Defender或部分防毒軟體誤判為「木馬」或「不安全程式」
+*這是正常現象*，請安心:
+* 本專案完全 **開源** ，所有程式碼皆可在main.py中查看，絕無後門。
+* 如果您有疑慮，建議您可以：
+  1. **自行審查**main.py源碼。 
+  2. **手動執行**：不安裝 `exe` ，改為安裝 `Python` 環境並直接運行 
+  ```bash
+  python main.py
+  ```
+  3. **排除清單**：將 `TDTA_bot-win.exe` 加入防毒軟體的白名單 。
+
+### 🛡️安全性聲明(Security)
+
+本工具經過[VirusTotal](https://www.virustotal.com/)掃描，結果為 **66/71安全** 。
+[點此查看 VirusTotal 完整掃描報告](https://www.virustotal.com/gui/file/b8ebf0805c43815ec1bb1299d7738b5d7d14d96509801c9674326508ecddbbc4/detection)
 
 ## 💬 關於我 (Contact)
 如果有任何問題，歡迎透過 Discord 聯繫我：
