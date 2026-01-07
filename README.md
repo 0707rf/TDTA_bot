@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 ![Discord](https://img.shields.io/badge/Discord-0707rf-5865F2?style=flat-square&logo=discord&logoColor=white)
 
-# TDTA (Taiwan Driving Test Assistant) `v0.9.0`
+# TDTA (Taiwan Driving Test Assistant) `v0.8.0`
 
 **台灣監理站路考預約助手**
 
@@ -31,6 +31,7 @@
    pip install selenium webdriver-manager
 3. **安裝 Google Chrome**: [點我安裝 Google Chrome](https://support.google.com/chrome/answer/95346?hl=zh-Hant&co=GENIE.Platform%3DDesktop#zippy=)
 4. **使用方法**：您可以透過直接安裝 `TADA_bot.exe` 直接開啟使用，或是開啟 `main.py` 透過 **CMD** 啟用
+
 
 ## ⚠️ 啟動時間設定須知
 建議打開 [**Time.is**](https://time.is/) 來查看您電腦的時間和 **實際** 的時間的 **誤差** 
@@ -90,9 +91,7 @@
 電子信箱:
 ```
 
-之後確認後，就填寫啟動時間，至於怎麼怎麼設定 **正確啟動時間** [點我查看設定啟動時間](#啟動時間設定須知) (請記得必須按照格式輸入 `00:00:00` 否則會失效)
-
-
+之後確認後，就填寫啟動時間，至於怎麼怎麼設定 **正確啟動時間** [查看上方啟動時間設定須知] (請記得必須按照格式輸入 `00:00:00` 否則會失效)
 
 
 
