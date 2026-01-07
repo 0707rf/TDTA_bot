@@ -113,6 +113,9 @@
 本工具經過[VirusTotal](https://www.virustotal.com/)掃描，結果為 **66/71安全** 。
 [點此查看 VirusTotal 完整掃描報告](https://www.virustotal.com/gui/file/b8ebf0805c43815ec1bb1299d7738b5d7d14d96509801c9674326508ecddbbc4/detection)
 
+> [!WARNING]
+> **本程式個資僅存於本地端，不會上傳至任何第三方伺服器**
+
 ## 💬 關於我 (Contact)
 如果有任何問題，歡迎透過 Discord 聯繫我：
 * **Discord ID**: `0707rf`
