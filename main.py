@@ -21,7 +21,7 @@ url = "https://www.mvdis.gov.tw/m3-emv-trn/exm/locations#anchor&gsc.tab=0"
 
 
 
-Date_of_Test = "1150204" #考試日期
+Date_of_Test = "" #考試日期
 my_id = "" #生份證號碼
 Birthday = "" #生日
 name = "" #名子
@@ -59,7 +59,7 @@ while True:
     clear_console()
 
     print("      此軟體可能隨時會失效，請確保是最新版本。")
-    print("可連結下載新版本:https://github.com/0707rf/TDTA_bot \nv0.8.0 - bata")
+    print("可連結下載新版本:https://github.com/0707rf/TDTA_bot \nv0.8.0 - beta")
     print("目前選擇:普通重型機車")
     if stage>=2:
         print(r"如果下方地區錯誤請關閉程式重新選擇")
