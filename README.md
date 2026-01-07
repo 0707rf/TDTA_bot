@@ -6,6 +6,10 @@
 # TDTA (Taiwan Driving Test Assistant) `v0.8.0`
 
 **台灣監理站路考預約助手**
+<p align = "center">
+   <img src = "img/logo.png" width="200" alt="TDTA LOGO"> 
+</p>
+
 
 ---
 
