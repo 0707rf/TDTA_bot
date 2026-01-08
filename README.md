@@ -110,7 +110,7 @@
 
 ### 🛡️安全性聲明(Security)
 
-本工具經過[VirusTotal](https://www.virustotal.com/)掃描，結果為 **66/71安全** 。
+本工具經過[VirusTotal](https://www.virustotal.com/)掃描，結果為 **65/71安全** 。
 [點此查看 VirusTotal 完整掃描報告](https://www.virustotal.com/gui/file/b8ebf0805c43815ec1bb1299d7738b5d7d14d96509801c9674326508ecddbbc4/detection)
 
 ---
