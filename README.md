@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 ![Discord](https://img.shields.io/badge/Discord-0707rf-5865F2?style=flat-square&logo=discord&logoColor=white)
 
-# TDTA (Taiwan Driving Test Assistant) `v0.8.0`
+# TDTA (Taiwan Driving Test Assistant) `v0.8.2`
 
 **台灣監理站路考預約助手**
 <p align = "center">
