@@ -11,6 +11,7 @@ import datetime
 import time
 import os
 import sys
+import json
 
 
 
@@ -27,7 +28,6 @@ Birthday = "" #生日
 name = "" #名子
 contactTel = "" #電話號碼
 email="" #電子信箱
-
 
 
 def clear_console(): #清除console函式
@@ -59,7 +59,7 @@ while True:
     clear_console()
 
     print("      此軟體可能隨時會失效，請確保是最新版本。")
-    print("可連結下載新版本:https://github.com/0707rf/TDTA_bot \nv0.8.0 - beta")
+    print("可連結下載新版本:https://github.com/0707rf/TDTA_bot \nv0.8.2 - beta")
     print("目前選擇:普通重型機車")
     if stage>=2:
         print(r"如果下方地區錯誤請關閉程式重新選擇")
@@ -156,11 +156,12 @@ key_word = [
 
 
 options = Options()
-options.add_experimental_option("detach", True)
+options.add_experimental_option("detach", True) #不自動關閉 Chrome
 options.page_load_strategy = 'eager' 
 options.add_argument('--disable-blink-features=AutomationControlled')
-options.add_experimental_option("excludeSwitches", ["enable-automation"])
+options.add_experimental_option("excludeSwitches", ["enable-automation"]) #關閉那個"自動控制"提示
 options.add_experimental_option('useAutomationExtension', False)
+options.add_argument(r"--user-data-dir=C:\selenium_profile\mvdis")
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
 
 # 啟動時設定 timeout，避免無限期等待
@@ -203,15 +204,22 @@ input_data = wait.until(EC.presence_of_element_located((By.ID,"expectExamDateStr
 input_data.clear()
 input_data.send_keys(Date_of_Test)  #輸入 考試日期
 
-Place1 = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'select[id="dmvNoLv1"]')))
-opj_sel1 = Select(Place1)
-opj_sel1.select_by_value(f"{local1on[local1_in]}")
+try:
 
-wait.until(EC.presence_of_element_located((By.XPATH, f'//select[@id="dmvNo"]/option[@value="{local2on[local1_in][local2_in]}"]'))) #等 "臺南監理站(臺南市崇德路1號) #74 出現
+    Place1 = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'select[id="dmvNoLv1"]')))
+    opj_sel1 = Select(Place1)
+    opj_sel1.select_by_value(f"{local1on[local1_in]}")
 
-Place2 = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'select[id="dmvNo"]')))
-opj_sel2 = Select(Place2)
-opj_sel2.select_by_value(f"{local2on[local1_in][local2_in]}")
+    wait.until(EC.presence_of_element_located((By.XPATH, f'//select[@id="dmvNo"]/option[@value="{local2on[local1_in][local2_in]}"]'))) #等 "臺南監理站(臺南市崇德路1號) #74 出現
+
+    Place2 = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'select[id="dmvNo"]')))
+    opj_sel2 = Select(Place2)
+    opj_sel2.select_by_value(f"{local2on[local1_in][local2_in]}")
+except Exception as e:
+    print("輸入的日期可能是六日，找不到可以考試的監理站")
+    time.sleep(2)
+    driver.quit()
+    sys.exit(e)
 
 btn = driver.find_element(By.CSS_SELECTOR,'a[href="#anchor"].std_btn')
 driver.execute_script("arguments[0].click();", btn)
@@ -220,19 +228,44 @@ btn1 = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'a[onclick="$.
 driver.execute_script("arguments[0].click();", btn1)
 
 
-try:
-    
-    target_xpath = f"//tbody/tr[contains(., '{key_word[local1_in][local2_in]}')]//a[contains(text(), '報名 SignUp')]"  #限筆試+路考者報名
-    
-    apply_btn = wait.until(EC.element_to_be_clickable((By.XPATH, target_xpath)))
-    
-    driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", apply_btn)
-    driver.execute_script("arguments[0].click();", apply_btn)
-    
-    print("成功進入報名頁面！")
 
+
+keyword_xpath = f"//a[contains(., '{key_word[local1_in][local2_in]}')]" #找a裡面有符合key_word的
+row_xpath = f"{keyword_xpath}/ancestor::tr[1]" #在a往上找最近的tr
+apply_btn_xpath = ".//a[contains(text(), '報名 SignUp')]" #在tr裡面找a叫做報名的
+
+try: #找所有符合關鍵字的那一欄
+    all_data_rows = driver.find_elements(By.XPATH,row_xpath)
+    print(f"掃描完成：在表格中發現 {len(all_data_rows)} 排符合場次特徵的資料")
 except Exception as e:
-    print(f"目前無法報名：可能是名額已滿（顯示額滿）或尚未釋出。")
+    print(f"目前無法報名：可能是尚未釋出。")
+    time.sleep(2)
+    driver.quit()
+    sys.exit()
+
+
+is_success = False
+
+
+try: #把美一欄拿出來，看有沒有可以報名。
+    for data in all_data_rows:
+        try:
+            apply_btn = data.find_element(By.XPATH, apply_btn_xpath)
+            wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'a[class="std_btn"]')))
+            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", apply_btn)
+            driver.execute_script("arguments[0].click();", apply_btn)
+        
+            print("成功進入報名頁面！")
+            is_success = True
+            break
+        except:
+            continue
+        
+    if not is_success:
+        raise Exception("頁面上所有匹配場次皆已額滿")
+except Exception as e:
+    print(e)
+    time.sleep(2)
     driver.quit()
     sys.exit()
 
@@ -265,6 +298,7 @@ try:
 
 except Exception as e:
     print(f"目前無法報名：可能是名額已滿（顯示額滿）或尚未釋出。")
+    time.sleep(2)
     driver.quit()
     sys.exit()
 
