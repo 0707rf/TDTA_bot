@@ -34,7 +34,7 @@
    ```bash
    pip install selenium webdriver-manager
 3. **安裝 Google Chrome**: [點我安裝 Google Chrome](https://support.google.com/chrome/answer/95346?hl=zh-Hant&co=GENIE.Platform%3DDesktop#zippy=)
-4. **使用方法**：您可以透過直接安裝 `TADA_bot-win.exe` 直接開啟使用，或是開啟 `main.py` 透過 **CMD** 啟用
+4. **使用方法**：您可以透過[releases](https://github.com/0707rf/TDTA_bot/releases)查看最新版本，直接安裝 `TADA_bot-win.exe` 直接開啟使用，或是開啟 `main.py` 透過 **CMD** 啟用
 
 
 ## ⚠️ 啟動時間設定須知
